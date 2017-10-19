@@ -34,12 +34,15 @@
     with_items:
       - atom
       - dash
+      - discord
       - dropbox
       - enpass
       - firefox
       - google-chrome
       - iterm2
+      - karabiner-elements
       - spectacle
+      - wordpresscom
   - name: enable debug on safari
     osx_defaults:
       domain: com.apple.Safari
