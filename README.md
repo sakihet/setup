@@ -11,10 +11,10 @@ brew install ansible
 do something
 ### clone setup repository
 ```
-git@github.com:sakihet/setup.git
+git clone git@github.com:sakihet/setup.git
 ```
 
-## run ansible-playbook
+## setup by ansible
 ```
 ansible-playbook -i hosts localhost.yml
 ```
