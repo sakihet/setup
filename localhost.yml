@@ -42,6 +42,7 @@
       - iterm2
       - karabiner-elements
       - spectacle
+      - visual-studio-code
       - wordpresscom
   - name: enable debug on safari
     osx_defaults:
