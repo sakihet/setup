@@ -38,10 +38,13 @@
       - dropbox
       - enpass
       - firefox
+      - github
       - google-chrome
+      - intellij-idea-ce
       - iterm2
       - kap
       - karabiner-elements
+      - sequel-pro
       - slack
       - spectacle
       - vagrant
