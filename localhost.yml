@@ -40,8 +40,12 @@
       - firefox
       - google-chrome
       - iterm2
+      - kap
       - karabiner-elements
+      - slack
       - spectacle
+      - vagrant
+      - virtualbox
       - visual-studio-code
       - wordpresscom
   - name: enable debug on safari
