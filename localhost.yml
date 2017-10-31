@@ -1,9 +1,15 @@
 - hosts: localhost
   connection: local
   tasks:
+
   - name: brew update
     homebrew:
-      update_homebrew=yes
+      update_homebrew: yes
+
+  - name: brew upgrade
+    homebrew:
+      upgrade_all: yes
+
   - name: brew install
     homebrew: name={{ item }}
     state: present
@@ -23,11 +29,13 @@
       - tree
       - zsh
       - zsh-completions
+
   - name: brew tap
     homebrew_tap: tap={{ item }}
     state: present
     with_items:
       - caskroom/cask
+
   - name: brew cask install
     homebrew_cask: name={{ item }}
     state: present
@@ -53,6 +61,7 @@
       - virtualbox
       - visual-studio-code
       - wordpresscom
+
   - name: enable debug on safari
     osx_defaults:
       domain: com.apple.Safari
@@ -60,14 +69,17 @@
       type: bool
       value: true
       state: present
+
   - name: clone dotfiles
     git:
       repo: git@github.com:sakihet/dotfiles.git
       dest: ~/src/github.com/sakihet/dotfiles
+
   - name: clone .atom
     git:
       repo: git@github.com:sakihet/.atom.git
       dest: ~/src/github.com/sakihet/.atom
+
   - name: clone .emacs.d
     git:
       repo: git@github.com:sakihet/.emacs.d.git
