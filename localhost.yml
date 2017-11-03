@@ -22,6 +22,7 @@
       - go
       - node
       - mas
+      - mysql
       - peco
       - rbenv
       - ruby-build
