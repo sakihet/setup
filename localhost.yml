@@ -10,6 +10,19 @@
     homebrew:
       upgrade_all: yes
 
+  - name: brew tap
+    homebrew_tap: tap={{ item }}
+    state: present
+    with_items:
+      - caskroom/cask
+      - caskroom/versions
+
+  - name: brew cask install
+    homebrew_cask: name={{ item }}
+    state: present
+    with_items:
+      - java8
+
   - name: brew install
     homebrew: name={{ item }}
     state: present
@@ -25,17 +38,13 @@
       - mysql
       - peco
       - rbenv
+      - redis
       - ruby-build
+      - sbt
       - tmux
       - tree
       - zsh
       - zsh-completions
-
-  - name: brew tap
-    homebrew_tap: tap={{ item }}
-    state: present
-    with_items:
-      - caskroom/cask
 
   - name: brew cask install
     homebrew_cask: name={{ item }}
