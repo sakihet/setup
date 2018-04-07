@@ -33,6 +33,7 @@
       - ghq
       - git
       - go
+      - jq
       - node
       - mas
       - mysql
