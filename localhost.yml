@@ -34,7 +34,7 @@
       - git
       - go
       - jq
-      - node
+      - nodenv
       - mas
       - mysql
       - peco
