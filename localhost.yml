@@ -2,6 +2,7 @@
   connection: local
   vars:
     node_version: 8.11.1
+    ruby_version: 2.5.1
   tasks:
 
   - name: brew update
@@ -61,6 +62,19 @@
   - name: install node & set global node version
     shell: nodenv install {{ node_version }} && nodenv global {{ node_version }}
     when: user_node_version.stdout is not search(node_version)
+
+  - name: check ruby version
+    shell: ruby --version
+    register: user_ruby_version
+    ignore_errors: yes
+
+  - name: show ruby version
+    debug:
+      var: user_ruby_version.stdout
+
+  - name: install ruby & set global ruby version
+    shell: rbenv install {{ ruby_version }} && rbenv global {{ ruby_version }}
+    when: user_ruby_version.stdout is not search(ruby_version)
 
   - name: brew cask install
     homebrew_cask: name={{ item }}
