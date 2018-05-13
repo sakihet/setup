@@ -1,5 +1,7 @@
 - hosts: localhost
   connection: local
+  vars:
+    node_version: 8.11.1
   tasks:
 
   - name: brew update
@@ -46,6 +48,19 @@
       - tree
       - zsh
       - zsh-completions
+
+  - name: check node version
+    shell: node --version
+    register: user_node_version
+    ignore_errors: yes
+
+  - name: show node version
+    debug:
+      var: user_node_version.stdout
+
+  - name: install node & set global node version
+    shell: nodenv install {{ node_version }} && nodenv global {{ node_version }}
+    when: user_node_version.stdout is not search(node_version)
 
   - name: brew cask install
     homebrew_cask: name={{ item }}
