@@ -45,6 +45,7 @@
       - redis
       - ruby-build
       - sbt
+      - tig
       - tmux
       - tree
       - zsh
