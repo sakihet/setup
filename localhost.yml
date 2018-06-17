@@ -84,6 +84,7 @@
       - atom
       - dash
       - discord
+      - docker
       - dropbox
       - enpass
       - evernote
