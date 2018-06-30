@@ -41,6 +41,7 @@
       - mas
       - mysql
       - peco
+      - postgresql
       - rbenv
       - redis
       - ruby-build
