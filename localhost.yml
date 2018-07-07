@@ -36,6 +36,7 @@
       - ghq
       - git
       - go
+      - heroku/brew/heroku
       - jq
       - nodenv
       - mas
