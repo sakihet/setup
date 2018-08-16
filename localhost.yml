@@ -14,22 +14,25 @@
       upgrade_all: yes
 
   - name: brew tap
-    homebrew_tap: tap={{ item }}
-    state: present
-    with_items:
+    homebrew_tap:
+      tap: "{{ item }}"
+      state: present
+    loop:
       - homebrew/cask
       - homebrew/cask-versions
 
   - name: brew cask install
-    homebrew_cask: name={{ item }}
-    state: present
-    with_items:
+    homebrew_cask:
+      name: "{{ item }}"
+      state: present
+    loop:
       - java8
 
   - name: brew install
-    homebrew: name={{ item }}
-    state: present
-    with_items:
+    homebrew:
+      name: "{{ item }}"
+      state: present
+    loop:
       - ansible
       - coreutils
       - emacs
@@ -80,9 +83,10 @@
     when: user_ruby_version.stdout is not search(ruby_version)
 
   - name: brew cask install
-    homebrew_cask: name={{ item }}
-    state: present
-    with_items:
+    homebrew_cask:
+      name: "{{ item }}"
+      state: present
+    loop:
       - atom
       - dash
       - discord
