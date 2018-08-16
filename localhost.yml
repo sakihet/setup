@@ -120,6 +120,27 @@
       value: true
       state: present
 
+  - name: dock orientation
+    osx_defaults:
+      domain: com.apple.dock
+      key: orientation
+      type: string
+      value: left
+
+  - name: finder status bar
+    osx_defaults:
+      domain: com.apple.finder
+      key: ShowStatusBar
+      type: bool
+      value: true
+
+  - name: finder path bar
+    osx_defaults:
+      domain: com.apple.finder
+      key: ShowPathbar
+      type: bool
+      value: true
+
   - name: clone dotfiles
     git:
       repo: git@github.com:sakihet/dotfiles.git
