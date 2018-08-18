@@ -1,7 +1,7 @@
 - hosts: localhost
   connection: local
   vars:
-    node_version: 8.11.1
+    node_version: 8.11.3
     ruby_version: 2.5.1
   tasks:
 
