@@ -112,6 +112,11 @@
       - visual-studio-code
       - wordpresscom
 
+  - name: install gem
+    gem:
+      name: tmuxinator
+      state: latest
+
   - name: enable debug on safari
     osx_defaults:
       domain: com.apple.Safari
