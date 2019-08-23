@@ -84,6 +84,7 @@
     when: user_ruby_version.stdout is not search(ruby_version)
 
   - name: brew cask install
+    ignore_errors: yes
     homebrew_cask:
       name: "{{ item }}"
       state: present
