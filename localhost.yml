@@ -113,6 +113,8 @@
       - virtualbox
       - visual-studio-code
       - wordpresscom
+    tags:
+      - cask
 
   - name: install gem
     gem:

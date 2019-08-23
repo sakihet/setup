@@ -17,6 +17,9 @@ git clone git@github.com:sakihet/setup.git
 ## setup by ansible
 ```
 ansible-playbook -i hosts localhost.yml
+
+# skip cask tasks
+ansible-playbook -i hosts localhost.yml --skip-tags "cask"
 ```
 
 ## set symbolic link
