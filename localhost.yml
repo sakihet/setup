@@ -119,6 +119,12 @@
       name: tmuxinator
       state: latest
 
+  - name: install npm
+    npm:
+      name: '@vue/cli'
+      state: latest
+      global: yes
+
   - name: enable debug on safari
     osx_defaults:
       domain: com.apple.Safari
