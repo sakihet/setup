@@ -150,13 +150,3 @@
     git:
       repo: git@github.com:sakihet/dotfiles.git
       dest: ~/src/github.com/sakihet/dotfiles
-
-  - name: clone .atom
-    git:
-      repo: git@github.com:sakihet/.atom.git
-      dest: ~/src/github.com/sakihet/.atom
-
-  - name: clone .emacs.d
-    git:
-      repo: git@github.com:sakihet/.emacs.d.git
-      dest: ~/src/github.com/sakihet/.emacs.d
