@@ -21,13 +21,6 @@
       - homebrew/cask
       - homebrew/cask-versions
 
-  - name: brew cask install
-    homebrew_cask:
-      name: "{{ item }}"
-      state: present
-    loop:
-      - java8
-
   - name: brew install
     homebrew:
       name: "{{ item }}"
@@ -50,7 +43,6 @@
       - rbenv
       - redis
       - ruby-build
-      - sbt
       - tig
       - tmux
       - tree
