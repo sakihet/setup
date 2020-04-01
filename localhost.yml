@@ -20,6 +20,7 @@
     loop:
       - homebrew/cask
       - homebrew/cask-versions
+      - homebrew/cask-drivers
 
   - name: brew install
     homebrew:
@@ -103,6 +104,15 @@
       - virtualbox
       - visual-studio-code
       - wordpresscom
+    tags:
+      - cask
+
+  - name: brew cask install drivers
+    homebrew_cask:
+      name: "{{ item }}"
+      state: present
+    loop:
+      - logitech-options
     tags:
       - cask
 
