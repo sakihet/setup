@@ -134,6 +134,8 @@
       type: bool
       value: true
       state: present
+    tags:
+      - osx_defaults
 
   - name: dock orientation
     osx_defaults:
@@ -141,6 +143,8 @@
       key: orientation
       type: string
       value: left
+    tags:
+      - osx_defaults
 
   - name: finder status bar
     osx_defaults:
@@ -148,6 +152,8 @@
       key: ShowStatusBar
       type: bool
       value: true
+    tags:
+      - osx_defaults
 
   - name: finder path bar
     osx_defaults:
@@ -155,6 +161,8 @@
       key: ShowPathbar
       type: bool
       value: true
+    tags:
+      - osx_defaults
 
   - name: clone dotfiles
     git:
