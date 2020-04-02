@@ -5,6 +5,8 @@
     ruby_version: 2.7.0
   tasks:
 
+# homebrew
+
   - name: brew update
     homebrew:
       update_homebrew: yes
@@ -50,6 +52,8 @@
       - zsh
       - zsh-completions
 
+# node
+
   - name: check node version
     shell: node --version
     register: user_node_version
@@ -63,6 +67,8 @@
     shell: nodenv install {{ node_version }} && nodenv global {{ node_version }}
     when: user_node_version.stdout is not search(node_version)
 
+# ruby
+
   - name: check ruby version
     shell: ruby --version
     register: user_ruby_version
@@ -75,6 +81,8 @@
   - name: install ruby & set global ruby version
     shell: rbenv install {{ ruby_version }} && rbenv global {{ ruby_version }}
     when: user_ruby_version.stdout is not search(ruby_version)
+
+# homebrew_cask
 
   - name: brew cask install
     ignore_errors: yes
@@ -116,16 +124,24 @@
     tags:
       - cask
 
+# gem
+
   - name: install gem
     gem:
       name: tmuxinator
       state: latest
+
+# npm
 
   - name: install npm
     npm:
       name: '@vue/cli'
       state: latest
       global: yes
+
+# osx_defaults
+
+## safari
 
   - name: enable debug on safari
     osx_defaults:
@@ -137,6 +153,8 @@
     tags:
       - osx_defaults
 
+## dock
+
   - name: dock orientation
     osx_defaults:
       domain: com.apple.dock
@@ -145,6 +163,8 @@
       value: left
     tags:
       - osx_defaults
+
+## finder
 
   - name: finder status bar
     osx_defaults:
@@ -163,6 +183,8 @@
       value: true
     tags:
       - osx_defaults
+
+# misc
 
   - name: clone dotfiles
     git:
