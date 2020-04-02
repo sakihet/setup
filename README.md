@@ -18,11 +18,14 @@ git clone git@github.com:sakihet/setup.git
 ```
 ansible-playbook -i hosts localhost.yml
 
-# skip cask tasks
+# options
 ansible-playbook -i hosts localhost.yml --skip-tags "cask"
+ansible-playbook -i hosts localhost.yml --tags "osx_defaults"
 ```
 
 ## set symbolic link
+
+TODO
 
 ## change default shell
 ```
