@@ -185,6 +185,15 @@
     tags:
       - osx_defaults
 
+  - name: hide dock
+    osx_defaults:
+      domain: com.apple.dock
+      key: autohide
+      type: bool
+      value: true
+    tags:
+      - osx_defaults
+
 ## finder
 
   - name: finder status bar
