@@ -58,14 +58,23 @@
     shell: node --version
     register: user_node_version
     ignore_errors: yes
+    tags:
+      - never
+      - node
 
   - name: show node version
     debug:
       var: user_node_version.stdout
+    tags:
+      - never
+      - node
 
   - name: install node & set global node version
     shell: nodenv install {{ node_version }} && nodenv global {{ node_version }}
     when: user_node_version.stdout is not search(node_version)
+    tags:
+      - never
+      - node
 
 # ruby
 
@@ -73,14 +82,23 @@
     shell: ruby --version
     register: user_ruby_version
     ignore_errors: yes
+    tags:
+      - never
+      - ruby
 
   - name: show ruby version
     debug:
       var: user_ruby_version.stdout
+    tags:
+      - never
+      - ruby
 
   - name: install ruby & set global ruby version
     shell: rbenv install {{ ruby_version }} && rbenv global {{ ruby_version }}
     when: user_ruby_version.stdout is not search(ruby_version)
+    tags:
+      - never
+      - ruby
 
 # homebrew_cask
 
@@ -130,6 +148,9 @@
     gem:
       name: tmuxinator
       state: latest
+    tags:
+      - never
+      - gem
 
 # npm
 
@@ -138,6 +159,9 @@
       name: '@vue/cli'
       state: latest
       global: yes
+    tags:
+      - never
+      - npm
 
 # osx_defaults
 
