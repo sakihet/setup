@@ -35,8 +35,6 @@
       - ghq
       - git
       - go
-      - heroku/brew/heroku
-      - hugo
       - jq
       - nodenv
       - mas
@@ -46,7 +44,6 @@
       - rbenv
       - redis
       - ruby-build
-      - tig
       - tmux
       - tree
       - zsh
