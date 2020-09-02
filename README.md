@@ -28,6 +28,8 @@ git clone git@github.com:sakihet/setup.git
 ansible-playbook -i hosts localhost.yml -v
 
 # options
+ansible-playbook -i hosts localhost.yml --tags "ruby"
+ansible-playbook -i hosts localhost.yml --tags "node"
 ansible-playbook -i hosts localhost.yml --skip-tags "cask"
 ansible-playbook -i hosts localhost.yml --tags "osx_defaults"
 ```
