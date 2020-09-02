@@ -1,7 +1,7 @@
 - hosts: localhost
   connection: local
   vars:
-    node_version: 12.16.1
+    node_version: 12.18.3
     ruby_version: 2.7.0
   tasks:
 
