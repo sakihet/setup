@@ -125,13 +125,23 @@
       - slack
       - spectacle
       - spotify
-      - steam
       - vagrant
       - virtualbox
       - visual-studio-code
       - wordpresscom
     tags:
       - cask
+
+  - name: brew cask install games
+    ignore_errors: yes
+    homebrew_cask:
+      name: "{{ item }}"
+      state: present
+    loop:
+      - steam
+    tags:
+      - never
+      - game
 
   - name: brew cask install drivers
     homebrew_cask:
