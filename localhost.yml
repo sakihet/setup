@@ -8,11 +8,11 @@
 # homebrew
 
   - name: brew update
-    homebrew:
+    community.general.homebrew:
       update_homebrew: yes
 
   - name: brew upgrade
-    homebrew:
+    community.general.homebrew:
       upgrade_all: yes
 
   - name: brew tap
@@ -25,7 +25,7 @@
       - homebrew/cask-drivers
 
   - name: brew install
-    homebrew:
+    community.general.homebrew:
       name: "{{ item }}"
       state: present
     loop:
@@ -101,7 +101,7 @@
 
   - name: brew cask install
     ignore_errors: yes
-    homebrew_cask:
+    community.general.homebrew_cask:
       name: "{{ item }}"
       state: present
     loop:
@@ -132,7 +132,7 @@
 
   - name: brew cask install games
     ignore_errors: yes
-    homebrew_cask:
+    community.general.homebrew_cask:
       name: "{{ item }}"
       state: present
     loop:
@@ -142,7 +142,7 @@
       - game
 
   - name: brew cask install drivers
-    homebrew_cask:
+    community.general.homebrew_cask:
       name: "{{ item }}"
       state: present
     loop:
