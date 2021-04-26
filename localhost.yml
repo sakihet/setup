@@ -6,6 +6,7 @@
   tasks:
 
 # homebrew
+# https://docs.ansible.com/ansible/latest/collections/community/general/homebrew_module.html
 
   - name: brew update
     community.general.homebrew:
