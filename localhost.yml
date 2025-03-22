@@ -4,6 +4,7 @@
   tasks:
 # ansible community.general.homebrew module
 # https://docs.ansible.com/ansible/latest/collections/community/general/homebrew_module.html
+# homebrew
     - name: brew update
       community.general.homebrew:
         update_homebrew: yes
@@ -32,6 +33,7 @@
         - slack
         - docker
         - karabiner-elements
+# ssh
     - name: make .ssh dir
       ansible.builtin.file:
         path: ~/.ssh
@@ -40,3 +42,31 @@
       community.crypto.openssh_keypair:
         path: ~/.ssh/id_ed25519
         type: ed25519
+# ansilbe community.general.osx_defaults module
+# https://docs.ansible.com/ansible/latest/collections/community/general/osx_defaults_module.html
+# dock
+    - name: orientation
+      community.general.osx_defaults:
+        domain: com.apple.dock
+        key: orientation
+        type: string
+        value: left
+    - name: hide
+      community.general.osx_defaults:
+        domain: com.apple.dock
+        key: autohide
+        type: bool
+        value: true
+# finder
+    - name: status bar
+      community.general.osx_defaults:
+        domain: com.apple.finder
+        key: ShowStatusBar
+        type: bool
+        value: true
+    - name: path bar
+      community.general.osx_defaults:
+        domain: com.apple.finder
+        key: ShowPathbar
+        type: bool
+        value: true
