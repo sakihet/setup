@@ -8,6 +8,6 @@ A repository for automating the setup of a macOS development environment.
 
 ## What the setup script does:
 
-- Installs Homebrew
-- Installs Ansible
-- Runs Ansible to configure the macOS environment
+- Installs homebrew
+- Installs ansible
+- Runs ansible to configure the macOS environment
