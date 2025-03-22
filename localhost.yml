@@ -16,23 +16,25 @@
         name: "{{ item }}"
         state: present
       loop:
+        - asdf
+        - docker
         - emacs
+        - firefox
         - fzf
         - git
-        - tmux
-        - asdf
-        - mas
-        - tree
         - gh
         - ghq
+        - google-chrome
+        - google-drive
+        - kap
+        - karabiner-elements
+        - mas
+        - slack
+        - spotify
+        - tmux
+        - tree
         - visual-studio-code
         - visual-studio-code@insiders
-        - google-chrome
-        - firefox
-        - spotify
-        - slack
-        - docker
-        - karabiner-elements
 # ssh
     - name: make .ssh dir
       ansible.builtin.file:
