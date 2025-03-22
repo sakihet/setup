@@ -77,3 +77,8 @@
       community.general.mas:
         id: 302584613
         state: present
+# misc
+    - name: clone dotfiles repo
+      ansible.builtin.git:
+        repo: git@github.com:sakihet/dotfiles.git
+        dest: ~/src/github.com/sakihet/dotfiles
