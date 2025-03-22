@@ -1,234 +1,42 @@
 - hosts: localhost
   connection: local
   vars:
-    node_version: 12.18.3
-    ruby_version: 2.7.2
   tasks:
-
-# homebrew
+# ansible community.general.homebrew module
 # https://docs.ansible.com/ansible/latest/collections/community/general/homebrew_module.html
-
-  - name: brew update
-    community.general.homebrew:
-      update_homebrew: yes
-
-  - name: brew upgrade
-    community.general.homebrew:
-      upgrade_all: yes
-
-  - name: brew tap
-    homebrew_tap:
-      tap: "{{ item }}"
-      state: present
-    loop:
-      - homebrew/cask
-      - homebrew/cask-versions
-      - homebrew/cask-drivers
-
-  - name: brew install
-    community.general.homebrew:
-      name: "{{ item }}"
-      state: present
-    loop:
-      - ansible
-      - coreutils
-      - emacs
-      - ghq
-      - git
-      - go
-      - jq
-      - nodenv
-      - mas
-      - mysql
-      - peco
-      - postgresql
-      - rbenv
-      - redis
-      - ruby-build
-      - tmux
-      - tree
-      - zsh
-      - zsh-completions
-
-# node
-
-  - name: check node version
-    shell: node --version
-    register: user_node_version
-    ignore_errors: yes
-    tags:
-      - never
-      - node
-
-  - name: show node version
-    debug:
-      var: user_node_version.stdout
-    tags:
-      - never
-      - node
-
-  - name: install node & set global node version
-    shell: nodenv install {{ node_version }} && nodenv global {{ node_version }}
-    when: user_node_version.stdout is not search(node_version)
-    tags:
-      - never
-      - node
-
-# ruby
-
-  - name: check ruby version
-    shell: ruby --version
-    register: user_ruby_version
-    ignore_errors: yes
-    tags:
-      - never
-      - ruby
-
-  - name: show ruby version
-    debug:
-      var: user_ruby_version.stdout
-    tags:
-      - never
-      - ruby
-
-  - name: install ruby & set global ruby version
-    shell: rbenv install {{ ruby_version }} && rbenv global {{ ruby_version }}
-    when: user_ruby_version.stdout is not search(ruby_version)
-    tags:
-      - never
-      - ruby
-
-# homebrew_cask
-
-  - name: brew cask install
-    ignore_errors: yes
-    community.general.homebrew_cask:
-      name: "{{ item }}"
-      state: present
-    loop:
-      - atom
-      - dash
-      - discord
-      - docker
-      - enpass
-      - firefox
-      - github
-      - google-backup-and-sync
-      - google-chrome
-      - intellij-idea-ce
-      - iterm2
-      - kap
-      - karabiner-elements
-      - microsoft-edge
-      - notion
-      - sequel-pro
-      - slack
-      - spectacle
-      - spotify
-      - vagrant
-      - virtualbox
-      - visual-studio-code
-    tags:
-      - cask
-
-  - name: brew cask install games
-    ignore_errors: yes
-    community.general.homebrew_cask:
-      name: "{{ item }}"
-      state: present
-    loop:
-      - steam
-    tags:
-      - never
-      - game
-
-  - name: brew cask install drivers
-    community.general.homebrew_cask:
-      name: "{{ item }}"
-      state: present
-    loop:
-      - logitech-options
-    tags:
-      - cask
-
-# gem
-
-  - name: install gem
-    gem:
-      name: tmuxinator
-      state: latest
-    tags:
-      - never
-      - gem
-
-# npm
-
-  - name: install npm
-    npm:
-      name: '@vue/cli'
-      state: latest
-      global: yes
-    tags:
-      - never
-      - npm
-
-# osx_defaults
-
-## safari
-
-  - name: enable debug on safari
-    osx_defaults:
-      domain: com.apple.Safari
-      key: IncludeInternalDebugMenu
-      type: bool
-      value: true
-      state: present
-    tags:
-      - osx_defaults
-
-## dock
-
-  - name: dock orientation
-    osx_defaults:
-      domain: com.apple.dock
-      key: orientation
-      type: string
-      value: left
-    tags:
-      - osx_defaults
-
-  - name: hide dock
-    osx_defaults:
-      domain: com.apple.dock
-      key: autohide
-      type: bool
-      value: true
-    tags:
-      - osx_defaults
-
-## finder
-
-  - name: finder status bar
-    osx_defaults:
-      domain: com.apple.finder
-      key: ShowStatusBar
-      type: bool
-      value: true
-    tags:
-      - osx_defaults
-
-  - name: finder path bar
-    osx_defaults:
-      domain: com.apple.finder
-      key: ShowPathbar
-      type: bool
-      value: true
-    tags:
-      - osx_defaults
-
-# misc
-
-  - name: clone dotfiles
-    git:
-      repo: git@github.com:sakihet/dotfiles.git
-      dest: ~/src/github.com/sakihet/dotfiles
+    - name: brew update
+      community.general.homebrew:
+        update_homebrew: yes
+    - name: brew upgrade
+      community.general.homebrew:
+        upgrade_all: yes
+    - name: brew install
+      community.general.homebrew:
+        name: "{{ item }}"
+        state: present
+      loop:
+        - emacs
+        - fzf
+        - git
+        - tmux
+        - asdf
+        - mas
+        - tree
+        - gh
+        - ghq
+        - visual-studio-code
+        - visual-studio-code@insiders
+        - google-chrome
+        - firefox
+        - spotify
+        - slack
+        - docker
+        - karabiner-elements
+    - name: make .ssh dir
+      ansible.builtin.file:
+        path: ~/.ssh
+        state: directory
+    - name: generate ssh keys
+      community.crypto.openssh_keypair:
+        path: ~/.ssh/id_ed25519
+        type: ed25519
