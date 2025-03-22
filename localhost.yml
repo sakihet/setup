@@ -72,3 +72,8 @@
         key: ShowPathbar
         type: bool
         value: true
+# mas
+    - name: install kindle
+      community.general.mas:
+        id: 302584613
+        state: present
