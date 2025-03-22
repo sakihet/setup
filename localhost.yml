@@ -2,9 +2,9 @@
   connection: local
   vars:
   tasks:
-# ansible community.general.homebrew module
-# https://docs.ansible.com/ansible/latest/collections/community/general/homebrew_module.html
 # homebrew
+# community.general.homebrew module
+# https://docs.ansible.com/ansible/latest/collections/community/general/homebrew_module.html
     - name: brew update
       community.general.homebrew:
         update_homebrew: yes
@@ -17,7 +17,6 @@
         state: present
       loop:
         - asdf
-        - docker
         - emacs
         - firefox
         - fzf
@@ -35,6 +34,16 @@
         - tree
         - visual-studio-code
         - visual-studio-code@insiders
+# homebrew cask
+# community.general.homebrew_cask module
+# https://docs.ansible.com/ansible/latest/collections/community/general/homebrew_cask_module.html
+    - name: brew install cask
+      community.general.homebrew_cask:
+        name: "{{ item }}"
+        state: present
+      loop:
+        - docker
+        - rectangle
 # ssh
     - name: make .ssh dir
       ansible.builtin.file:
@@ -44,7 +53,8 @@
       community.crypto.openssh_keypair:
         path: ~/.ssh/id_ed25519
         type: ed25519
-# ansilbe community.general.osx_defaults module
+# osx_defaults
+# community.general.osx_defaults module
 # https://docs.ansible.com/ansible/latest/collections/community/general/osx_defaults_module.html
 # dock
     - name: orientation
@@ -73,6 +83,8 @@
         type: bool
         value: true
 # mas
+# community.general.mas module
+# https://docs.ansible.com/ansible/latest/collections/community/general/mas_module.html
     - name: install kindle
       community.general.mas:
         id: 302584613
