@@ -17,16 +17,20 @@
         state: present
       loop:
         - asdf
+        - chatgpt
+        - claude
         - emacs
         - firefox
         - fzf
         - git
         - gh
+        - ghostty
         - ghq
         - google-chrome
         - google-drive
         - kap
         - karabiner-elements
+        - logi-options+
         - mas
         - slack
         - spotify
