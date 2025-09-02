@@ -40,6 +40,7 @@
         - visual-studio-code
         - visual-studio-code@insiders
         - zed
+        - zsh-completions
 # homebrew cask
 # community.general.homebrew_cask module
 # https://docs.ansible.com/ansible/latest/collections/community/general/homebrew_cask_module.html
