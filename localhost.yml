@@ -19,6 +19,7 @@
         - asdf
         - chatgpt
         - claude
+        - ctop
         - emacs
         - firefox
         - fzf
@@ -28,6 +29,7 @@
         - ghq
         - google-chrome
         - google-drive
+        - htop
         - kap
         - karabiner-elements
         - logi-options+
