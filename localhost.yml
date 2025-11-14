@@ -35,6 +35,7 @@
         - logi-options+
         - mas
         - obsidian
+        - rustup
         - slack
         - spotify
         - tmux
