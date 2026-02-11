@@ -104,3 +104,8 @@
       ansible.builtin.git:
         repo: git@github.com:sakihet/dotfiles.git
         dest: ~/src/github.com/sakihet/dotfiles
+# emacs
+    - name: clone .emacs.d repo
+      ansible.builtin.git:
+        repo: git@github.com:sakihet/.emacs.d.git
+        dest: ~/src/github.com/sakihet/.emacs.d
