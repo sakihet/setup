@@ -56,14 +56,14 @@
         - docker
         - rectangle
 # ssh
-    - name: make .ssh dir
-      ansible.builtin.file:
-        path: ~/.ssh
-        state: directory
-    - name: generate ssh keys
-      community.crypto.openssh_keypair:
-        path: ~/.ssh/id_ed25519
-        type: ed25519
+    # - name: make .ssh dir
+    #   ansible.builtin.file:
+    #     path: ~/.ssh
+    #     state: directory
+    # - name: generate ssh keys
+    #   community.crypto.openssh_keypair:
+    #     path: ~/.ssh/id_ed25519
+    #     type: ed25519
 # osx_defaults
 # community.general.osx_defaults module
 # https://docs.ansible.com/ansible/latest/collections/community/general/osx_defaults_module.html
@@ -101,10 +101,10 @@
         id: 302584613
         state: present
 # misc
-    - name: clone dotfiles repo
-      ansible.builtin.git:
-        repo: git@github.com:sakihet/dotfiles.git
-        dest: ~/src/github.com/sakihet/dotfiles
+    # - name: clone dotfiles repo
+    #   ansible.builtin.git:
+    #     repo: git@github.com:sakihet/dotfiles.git
+    #     dest: ~/src/github.com/sakihet/dotfiles
 # emacs
     - name: clone .emacs.d repo
       ansible.builtin.git:
