@@ -1,12 +1,5 @@
 #!/bin/bash
 
-if command -v brew >/dev/null 2>&1; then
-  echo "brew found"
-else
-  echo "install homebrew"
-  /bin/bash -c "$(curl -fsSL https://raw.githubusercontent.com/Homebrew/install/HEAD/install.sh)"
-fi
-
 if command -v ansible >/dev/null 2>&1; then
   echo "ansible found"
 else
