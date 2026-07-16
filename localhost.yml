@@ -17,6 +17,7 @@
         state: present
       loop:
         - antigravity
+        - antigravity-cli
         - asdf
         - chatgpt
         - claude
@@ -30,6 +31,7 @@
         - ghq
         - google-chrome
         - google-drive
+        - herdr
         - htop
         - kap
         - karabiner-elements
@@ -53,6 +55,7 @@
         name: "{{ item }}"
         state: present
       loop:
+        - claude-code
         - cmux
         - docker
         - rectangle
