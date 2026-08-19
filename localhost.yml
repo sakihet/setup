@@ -25,6 +25,7 @@
         - emacs
         - firefox
         - fzf
+        - gcloud-cli
         - git
         - gh
         - ghostty
