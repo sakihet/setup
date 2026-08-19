@@ -38,6 +38,7 @@
         - logi-options+
         - mas
         - obsidian
+        - pipx
         - rustup
         - slack
         - spotify
