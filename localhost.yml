@@ -58,9 +58,14 @@
         state: present
       loop:
         - claude-code
-        - cmux
-        - docker
         - rectangle
+    - name: remove cask
+      community.general.homebrew_cask:
+        name: "{{ item }}"
+        state: absent
+      loop:
+        - cmux
+        - docker-desktop
 # ssh
     # - name: make .ssh dir
     #   ansible.builtin.file:
