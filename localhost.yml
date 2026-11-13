@@ -46,7 +46,6 @@
         - tmux
         - tree
         - visual-studio-code
-        - visual-studio-code@insiders
         - zed
         - zsh-completions
 # homebrew cask
@@ -58,6 +57,7 @@
         state: present
       loop:
         - claude-code
+        - herdr-app
         - rectangle
     - name: remove cask
       community.general.homebrew_cask:
